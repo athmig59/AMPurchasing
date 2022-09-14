@@ -1,0 +1,19 @@
+Package: AMPurchasing
+Title: Quantitative Decision Making Tools in Purchasing
+Version: 0.0.0.9000
+Author: Athanasios Migdalas <athmig59@gmail.com>
+Maintainer: Athanasios Migdalas <athmig59@gmail.com>
+Description: Provides interfaces to quantitative tools suitable for supplier evaluation and other tasks in purchasing decision making, such as AHP, Weighted Sum, Kraljc matrix, and DEA.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports:
+    tcltk,
+    MCDA,
+    ggplot2,
+    KraljicMatrix,
+    rDEA
+Depends: 
+    R (>= 2.10)
+LazyData: true
