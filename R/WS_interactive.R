@@ -3,7 +3,7 @@
 #' @author Athanasios Migdalas, \email{athmig59@gmail.com}
 #'
 #' @description
-#' Provides for interactive input of subjective user judgements and suppsequently applies
+#' Provides for interactive input of subjective user judgements and subsequently applies
 #' the simple Weighted Sum method in order to obtain ranking scores for the alternatives.
 #'
 #' @details
@@ -37,8 +37,6 @@
 #' WS_interactive(criteria=crit, alternatives=alt)
 #'
 #' }
-### if(!require("tcltk")){ install.packages("tcltk") }
-### if(!require("MCDA")){ install.packages("MCDA") }
 #'
 #'
 #'

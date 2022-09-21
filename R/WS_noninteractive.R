@@ -4,7 +4,7 @@
 #
 #'
 #' @description
-#' Provides for input of subjective user judgements and suppsequently applies
+#' Provides for input of subjective user judgements and subsequently applies
 #' the simple Weighted Sum method in order to obtain ranking scores for the alternatives.
 #'
 #' @details
