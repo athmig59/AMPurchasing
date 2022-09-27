@@ -23,6 +23,9 @@ A list containing:
 Provides for interactive input of subjective user comparisons and suppsequently applies
 the Analytic Hierarchy Process (AHP) method of T. L. Saaty in order to obtain ranking
 scores for the alternatives.
+
+IMPORTANT NOTE: To simplify input and avoid rounding errors, instead of the reciprocal of a number, insert the negative of the number!
+That is, instead of 1/x or a decimal approximationof it,  insert -x, for x in {1,2,3,4,5,6,7,8,9}.
 }
 \details{
 The function requires the package \code{tcltk} to pop up interactive messages and the

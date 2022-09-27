@@ -21,7 +21,7 @@ A list containing:
 }
 }
 \description{
-Provides for interactive input of subjective user judgements and suppsequently applies
+Provides for interactive input of subjective user judgements and subsequently applies
 the simple Weighted Sum method in order to obtain ranking scores for the alternatives.
 }
 \details{
