@@ -8,6 +8,9 @@
 #' the Analytic Hierarchy Process (AHP) method of T. L. Saaty in order to obtain ranking
 #' scores for the alternatives.
 #'
+#' IMPORTANT NOTE: To simplify input and avoid rounding errors, instead of the reciprocal of a number, insert the negative of the number!
+#' That is, instead of 1/x or a decimal approximationof it,  insert -x, for x in {1,2,3,4,5,6,7,8,9}.
+#'
 #' @details
 #' The function requires the package \code{tcltk} to pop up interactive messages and the
 #' package \code{MCDA} which provides implementation of the \code{AHP} function.
@@ -63,9 +66,18 @@ AHP_interactive <- function(criteria, alternatives){
   for(i in 1:(lc-1)){
     if((i+1) > lc) {break}
     for(j in (i+1):lc){
-      pairwise.criteria.comparison[j,i] = 1 / pairwise.criteria.comparison[i,j]
+      if(pairwise.criteria.comparison[i,j] >= 1 && pairwise.criteria.comparison[i,j] <= 9){
+         pairwise.criteria.comparison[j,i] = 1 / pairwise.criteria.comparison[i,j]
+      } else
+           if(pairwise.criteria.comparison[i,j] <= -1 && pairwise.criteria.comparison[i,j] >= -9){
+             pairwise.criteria.comparison[i,j] = 1/ abs(pairwise.criteria.comparison[i,j])
+             pairwise.criteria.comparison[j,i] = 1 / pairwise.criteria.comparison[i,j]
+           } else { message("*** ERROR: Given values do not comply to required scale! ***")
+                   return(NA)}
     }
   }
+
+  # print(pairwise.criteria.comparison)
 
   ### Subjective pairwise comparison of the alternatives with respect to each criterion
 
@@ -94,9 +106,18 @@ AHP_interactive <- function(criteria, alternatives){
     for(i in 1:(la-1)){
       if((i+1) > la) {break}
       for(j in (i+1):la){
-        pairwise.alternatives.comparison[j,i] = 1 / pairwise.alternatives.comparison[i,j]
+        if(pairwise.alternatives.comparison[i,j] >= 1 && pairwise.alternatives.comparison[i,j] <= 9){
+          pairwise.alternatives.comparison[j,i] = 1 / pairwise.alternatives.comparison[i,j]
+        } else
+          if(pairwise.alternatives.comparison[i,j] <= -1 && pairwise.alternatives.comparison[i,j] >= -9){
+            pairwise.alternatives.comparison[i,j] = 1 / abs( pairwise.alternatives.comparison[i,j])
+            pairwise.alternatives.comparison[j,i] = 1 / pairwise.alternatives.comparison[i,j]
+          } else { message("*** ERROR: Given values do not comply to required scale! ***")
+            return(NA)}
       }
     }
+
+    # print(pairwise.alternatives.comparison)
 
     comparisons.list[[c]] <- pairwise.alternatives.comparison
 
